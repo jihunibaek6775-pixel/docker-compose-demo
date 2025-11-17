@@ -64,10 +64,18 @@ jobs:
       # ========================================
       # Step 3: 의존성 설치
       # ========================================
-      - name: Install dependencies
+      - name: Install dependencies for auth-service
         run: |
+          cd auth-service
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Install dependencies for blog-service
+        run: |
+          cd blog-service
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
         # run의 의미: 터미널 명령어 직접 실행
         # | (파이프): 여러 줄 명령어 작성 가능
 
